@@ -1,0 +1,54 @@
+# Project: prjArduinoConsole
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o libraries/I2C_eeprom.o libraries/SerialClass.o libraries/EEPROM.o ../libraries/ArduinoBASIC/ArduinoBASIC.o ../libraries/ArduinoBASIC/Components.o ../libraries/ArduinoBASIC/DebugUtilities.o ../libraries/ArduinoBASIC/PSTRStrings.o ../libraries/ArduinoBASIC/ScriptEEPROM.o $(RES)
+LINKOBJ  = main.o libraries/I2C_eeprom.o libraries/SerialClass.o libraries/EEPROM.o ../libraries/ArduinoBASIC/ArduinoBASIC.o ../libraries/ArduinoBASIC/Components.o ../libraries/ArduinoBASIC/DebugUtilities.o ../libraries/ArduinoBASIC/PSTRStrings.o ../libraries/ArduinoBASIC/ScriptEEPROM.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  -g3 
+INCS =  -I"C:/Dev-Cpp/include"  -I"C:/arduino-1.0.1/libraries/ArduinoBASIC"  -I"C:/arduino-1.0.1/serialBasic"  -I"C:/arduino-1.0.1/ArduinoConsoleSimulator/libraries" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I"C:/arduino-1.0.1/libraries/ArduinoBASIC"  -I"C:/arduino-1.0.1/serialBasic"  -I"C:/arduino-1.0.1/ArduinoConsoleSimulator/libraries" 
+BIN  = prjArduinoConsole.exe
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS)   -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before prjArduinoConsole.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "prjArduinoConsole.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+libraries/I2C_eeprom.o: libraries/I2C_eeprom.cpp
+	$(CPP) -c libraries/I2C_eeprom.cpp -o libraries/I2C_eeprom.o $(CXXFLAGS)
+
+libraries/SerialClass.o: libraries/SerialClass.cpp
+	$(CPP) -c libraries/SerialClass.cpp -o libraries/SerialClass.o $(CXXFLAGS)
+
+libraries/EEPROM.o: libraries/EEPROM.cpp
+	$(CPP) -c libraries/EEPROM.cpp -o libraries/EEPROM.o $(CXXFLAGS)
+
+../libraries/ArduinoBASIC/ArduinoBASIC.o: ../libraries/ArduinoBASIC/ArduinoBASIC.cpp
+	$(CPP) -c ../libraries/ArduinoBASIC/ArduinoBASIC.cpp -o ../libraries/ArduinoBASIC/ArduinoBASIC.o $(CXXFLAGS)
+
+../libraries/ArduinoBASIC/Components.o: ../libraries/ArduinoBASIC/Components.cpp
+	$(CPP) -c ../libraries/ArduinoBASIC/Components.cpp -o ../libraries/ArduinoBASIC/Components.o $(CXXFLAGS)
+
+../libraries/ArduinoBASIC/DebugUtilities.o: ../libraries/ArduinoBASIC/DebugUtilities.cpp
+	$(CPP) -c ../libraries/ArduinoBASIC/DebugUtilities.cpp -o ../libraries/ArduinoBASIC/DebugUtilities.o $(CXXFLAGS)
+
+../libraries/ArduinoBASIC/PSTRStrings.o: ../libraries/ArduinoBASIC/PSTRStrings.cpp
+	$(CPP) -c ../libraries/ArduinoBASIC/PSTRStrings.cpp -o ../libraries/ArduinoBASIC/PSTRStrings.o $(CXXFLAGS)
+
+../libraries/ArduinoBASIC/ScriptEEPROM.o: ../libraries/ArduinoBASIC/ScriptEEPROM.cpp
+	$(CPP) -c ../libraries/ArduinoBASIC/ScriptEEPROM.cpp -o ../libraries/ArduinoBASIC/ScriptEEPROM.o $(CXXFLAGS)
